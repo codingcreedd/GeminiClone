@@ -12,11 +12,19 @@ const ContextProvider = (props) => {
     const [loading, setLoading] = useState(false);
     const [result, setResult]= useState("");
 
-    const sendInput = (input) => {
-        run(input);
+    const sendInput = async () => {
+
+        setResult("");
+        setInput("");
+        setShowResult(true);
+        setLoading(true);
+        setRecentPrompt(input);
+        const response = await run(input);
+        setResult(response);
+        setLoading(false);
     }
 
-    sendInput("How to talk to gemini?")
+    // sendInput('Hi');
 
     const states = {
         input, setInput, 
@@ -24,7 +32,7 @@ const ContextProvider = (props) => {
         prevPrompts, setPrevPrompts,
         showResult, setShowResult,
         loading, setLoading,
-        result, setResult
+        result, setResult, sendInput
     }
 
     return (

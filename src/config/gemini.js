@@ -17,14 +17,14 @@ import {
   const genAI = new GoogleGenerativeAI(apiKey);
   
   const model = genAI.getGenerativeModel({
-    model: "gemini-1.5-pro",
+    model: "gemini-1.0-pro",
   });
   
   const generationConfig = {
-    temperature: 1,
-    topP: 0.95,
-    topK: 64,
-    maxOutputTokens: 8192,
+    temperature: 0.9,
+    topP: 1,
+    topK: 0,
+    maxOutputTokens: 2048,
     responseMimeType: "text/plain",
   };
   
@@ -47,7 +47,7 @@ import {
     },
   ];
   
-  export default async function run() {
+  export default async function run(input) {
     const chatSession = model.startChat({
       generationConfig,
       safetySettings,
@@ -55,9 +55,9 @@ import {
       ],
     });
   
-    const result = await chatSession.sendMessage("INSERT_INPUT_HERE");
+    const result = await chatSession.sendMessage(input);
     console.log(result.response.text());
-    return result;
+    return result.response.text();
   }
   
   run();

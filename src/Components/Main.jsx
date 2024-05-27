@@ -1,5 +1,7 @@
+import { useContext } from "react"
 import Icon from "./Icon"
 import cards from "./cards"
+import { Context } from "./Context"
 
 const Nav = () => {
     return (
@@ -33,33 +35,63 @@ const Card = ({description, iconClass}) => {
 }
 
 const Main = () => {
+
+  const {input, setInput, recentPrompt, setRecentPrompt, prevPrompts, setPrevPrompts, showResult, setShowResult, loading, setLoading, result, setResult, sendInput} = useContext(Context);
+
+
   return (
     <div className="h-screen w-[80%] px-8 py-8 ff flex flex-col">
         <Nav />
-        <div className="flex flex-col mt-24 items-center mx-52">
-            <div>
-                <div className="bg-clip-text mb-32">
-                    <p className="text-7xl mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-900">Hello, Guest</p>
-                    <p className="text-7xl text-purple-400 sans">How can I help you today?</p>
-                </div>
+        {
+            !showResult ? (
+                <div className="flex flex-col mt-24 items-center mx-52">
+                    <div>
+                        <div className="bg-clip-text mb-32">
+                            <p className="text-7xl mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-900">Hello, Guest</p>
+                            <p className="text-7xl text-purple-400 sans">How can I help you today?</p>
+                        </div>
 
-                <div className="flex gap-4">
-                    {
-                        cards.map((card) => {
-                            return <Card description={card.description} iconClass={card.iconClass} />
-                        })
-                    }
+                        <div className="flex gap-4">
+                            {
+                                cards.map((card) => {
+                                    return <Card description={card.description} iconClass={card.iconClass} />
+                                })
+                            }
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
+            ) : (
+                <div className="flex flex-col gap-6 mx-52 mt-14">
+                    <div className="flex gap-4 items-center">
+                        <img className="w-[40px] h-[40px] object-contain border border-purple-800 rounded-full"
+                        src="../src/assets/user-sign-icon-person-symbol-human-avatar-isolated-on-white-backogrund-vector.jpg" alt="" />
+                        <p>{recentPrompt}</p>
+                    </div>
+
+                    <div className="flex gap-4">
+                        <img src="../src/assets/Colorful_Modern_Infinity_Technology_Free_Logo-removebg-preview.png" className="w-[50px] h-[50px]" alt="Miro Logo" />
+                        <p>{result}</p>
+                    </div>
+
+                </div>
+            )
+        }
 
         <div className="flex justify-between mt-auto mx-52 items-center bg-purple-300 px-6 py-2 rounded-full">
             <input type="text" name="prompt" placeholder="Enter a prompt here"
             className=" pl-4 py-4 w-[90%] outline-none bg-purple-300 placeholder-purple-800 text-purple-800"
+            onChange={(e) => setInput(e.target.value)} value={input}
             />
             <div className="flex gap-4 text-2xl">
-                <Icon className="bx bx-image-add" />
-                <Icon className="bx bx-microphone" />
+                <Icon className="bx bx-image-add cursor-pointer p-2" />
+                <Icon className="bx bx-microphone cursor-pointer p-2" />
+                {
+                    input ? (
+                        <Icon className="bx bx-send cursor-pointer transition-all hover:bg-purple-400 rounded-full p-2" onClick={() => sendInput()} />
+                    ) : (
+                        null
+                    )
+                }
             </div>
         </div>
         <div className="text-sm mx-auto mt-8 text-purple-600">Miro will always display the most accurate info, it's the best chat AI out there, so don't double check its responses. Bruv I'm kidding</div>
