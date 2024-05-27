@@ -13,25 +13,21 @@ const Sidebar = () => {
         </div>
 
         <div className="flex flex-col mt-auto">
-            <div className="flex items-center gap-4 cursor-pointer hover:bg-purple-600 px-3 py-2 transition-all rounded-3xl">
-                <Icon className="bx bx-help-circle text-xl" />
-                <p>Help</p>
-            </div>
-            <div className="flex items-center gap-4 cursor-pointer hover:bg-purple-600 px-3 py-2 transition-all rounded-3xl">
-                <Icon className="bx bxl-gmail text-xl"/>
-                <p>Contact</p>
-            </div>
-            <div className="flex items-center gap-4 cursor-pointer hover:bg-purple-600 px-3 py-2 transition-all rounded-3xl">
-                <Icon className="bx bx-cog text-xl" />
-                <p>Settings</p>
-            </div>
-            <div className="flex gap-4 mt-6 cursor-pointer px-3 py-2">
-                <Icon className="bx bxs-circle text-sm text-purple-800" />
+            <Button icon={<Icon className="bx bx-help-circle text-xl" />} className="flex items-center gap-4 cursor-pointer hover:bg-purple-600 transition-all rounded-3xl" paddings="px-3 py-2">
+                Help
+            </Button>
+            <Button icon={<Icon className="bx bxl-gmail text-xl"/>} className="flex items-center gap-4 cursor-pointer hover:bg-purple-600 transition-all rounded-3xl" paddings="px-3 py-2">
+                Contact
+            </Button>
+            <Button icon={<Icon className="bx bx-cog text-xl" />} className="flex items-center gap-4 cursor-pointer hover:bg-purple-600 transition-all rounded-3xl" paddings="px-3 py-2">
+                Settings
+            </Button>
+            <Button icon={<Icon className="bx bxs-circle text-sm text-purple-800" />} className="flex gap-4 mt-6 cursor-pointer px-3 py-2">
                 <div className="flex flex-col">
                     <p className="text-[0.8rem]">Beirut, Lebanon</p>
                     <p className="text-[0.8rem] text-purple-900">From your IP address</p>
                 </div>
-            </div>
+            </Button>
         </div>
     </div>
   )

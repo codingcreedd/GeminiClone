@@ -1,11 +1,12 @@
-const Button = ({className, title, icon, paddings}) => {
+const Button = ({className, title, icon, paddings, children}) => {
 
     const classes = `flex gap-6 ${className || ""} ${paddings || "px-2 px-1"}`;
 
     return (
         <button className={classes}>
             <div>{icon}</div>
-            <div>{title}</div>
+            {title && <div>{title}</div>}
+            {children}
         </button>
     )
 }
