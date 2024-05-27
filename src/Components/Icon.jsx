@@ -1,6 +1,7 @@
-const Icon = ({className}) => {
+const Icon = ({className, onClick}) => {
+    
     return (
-        <i className={className}></i>
+        <i className={className} onClick={onClick}></i>
     )
 }
 
