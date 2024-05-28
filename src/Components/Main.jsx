@@ -15,12 +15,12 @@ const Nav = () => {
             </div>
             <div className="flex gap-4 items-center">
                 <div className="hidden sm:flex cursor-pointer hover:bg-purple-400 transition-all gap-1 items-center bg-purple-300 pl-2 py-2 pr-4 rounded-2xl">
-                    <img src="../src/assets/Colorful_Modern_Infinity_Technology_Free_Logo-removebg-preview.png" className="w-[20px] h-[20px]" alt="Miro Logo" />
+                    <img src="/assets/Colorful_Modern_Infinity_Technology_Free_Logo-removebg-preview.png" className="w-[20px] h-[20px]" alt="Miro Logo" />
                     <p className="text-[0.8rem] font-bold text-purple-800">Try Miro Advanced</p>
                 </div>
                 <img 
                 className="w-[40px] h-[40px] object-contain border border-purple-800 rounded-full"
-                src="../src/assets/user-sign-icon-person-symbol-human-avatar-isolated-on-white-backogrund-vector.jpg" alt="" />
+                src="/assets/user-sign-icon-person-symbol-human-avatar-isolated-on-white-backogrund-vector.jpg" alt="" />
             </div>
         </nav>
     )
@@ -67,12 +67,12 @@ const Main = () => {
                 <div className="flex flex-col gap-6 xl:mx-52 md:mx-20 lg:mx-24 mt-14 overflow-scroll scroll-smooth hiddenScroll">
                     <div className="flex gap-4 items-center">
                         <img className="w-[40px] h-[40px] object-contain border border-purple-800 rounded-full"
-                        src="../src/assets/user-sign-icon-person-symbol-human-avatar-isolated-on-white-backogrund-vector.jpg" alt="" />
+                        src="/assets/user-sign-icon-person-symbol-human-avatar-isolated-on-white-backogrund-vector.jpg" alt="" />
                         <p>{recentPrompt}</p>
                     </div>
                         
                     <div className="flex gap-4">
-                        <img src="../src/assets/Colorful_Modern_Infinity_Technology_Free_Logo-removebg-preview.png" className="w-[50px] h-[50px]" alt="Miro Logo" />
+                        <img src="/assets/Colorful_Modern_Infinity_Technology_Free_Logo-removebg-preview.png" className="w-[50px] h-[50px]" alt="Miro Logo" />
                         {
                             !loading ? (
                                 <div dangerouslySetInnerHTML={{ __html: result }} />
