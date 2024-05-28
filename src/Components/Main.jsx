@@ -64,7 +64,7 @@ const Main = () => {
                     </div>
                 </div>
             ) : (
-                <div className="flex flex-col gap-6 xl:mx-52 md:mx-20 lg:mx-24 mt-14 overflow-scroll scroll-smooth hiddenScroll">
+                <div className="flex flex-col gap-6 xl:mx-52 md:mx-20 lg:mx-24 mt-14 overflow-auto hiddenScroll">
                     <div className="flex gap-4 items-center">
                         <img className="w-[40px] h-[40px] object-contain border border-purple-800 rounded-full"
                         src="../src/assets/user-sign-icon-person-symbol-human-avatar-isolated-on-white-backogrund-vector.jpg" alt="" />
