@@ -80,6 +80,10 @@ hr{
   width: 100% !important;
 }
 
+.mB{
+  margin-bottom: 1rem !important;
+}
+
 .sidebarphone{
   position: absolute;
   top: 0;

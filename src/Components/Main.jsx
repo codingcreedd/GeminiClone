@@ -43,18 +43,18 @@ const Main = () => {
 
 
   return (
-    <div className={`h-screen ${menuState ? 'max-lg:w-[75%] w-[80%]' : 'lg:w-[95%] w-[90%]'} ${hideSidebar && 'full'} px-8 py-8 ff flex flex-col`}>
+    <div className={`h-screen ${menuState ? 'max-lg:w-[75%] w-[80%]' : 'lg:w-[95%] w-[90%]'} ${hideSidebar && 'full'} px-8 py-8 ff flex flex-col max-sm:pb-8`}>
         <Nav />
         {
             !showResult ? (
                 <div className="flex flex-col mt-24 items-center xl:mx-52 md:mx-20 lg:mx-24">
                     <div>
-                        <div className="bg-clip-text md:mb-32 mb-14">
+                        <div className="bg-clip-text md:mb-12 mb-14">
                             <p className="xl:text-7xl text-4xl md:text-5xl lg:text-6xl mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-900">Hello, Guest</p>
                             <p className="xl:text-7xl text-4xl md:text-5xl lg:text-6xl  text-purple-400 sans">How can I help you today?</p>
                         </div>
 
-                        <div className="gap-4 lg:flex lg:text-md text-sm w-full max-md:flex max-md:flex-col max-md:gap-4 md:hidden">
+                        <div className="gap-4 lg:flex lg:text-md text-sm w-full max-md:flex max-md:flex-col max-md:gap-4 md:grid md:grid-cols-2 mb-4">
                             {
                                 cards.map((card) => {
                                     return <Card description={card.description} iconClass={card.iconClass} />
@@ -89,7 +89,7 @@ const Main = () => {
             )
         }
 
-        <div className="flex justify-between xl:mx-52 md:mx-20 lg:mx-24 items-center mt-8 bg-purple-300 px-6 py-2 rounded-full">
+        <div className="flex justify-between xl:mx-52 md:mx-20 lg:mx-24 items-center md:mt-auto max-lg:mt-8  bg-purple-300 px-6 py-2 rounded-full mB">
             <input type="text" name="prompt" placeholder="Enter a prompt here"
             className=" md:pl-4 md:py-4 w-[90%] outline-none bg-purple-300 placeholder-purple-800 text-purple-800"
             onChange={(e) => {setInput(e.target.value);}} value={input} readOnly={resultFinished}
@@ -106,7 +106,7 @@ const Main = () => {
                 }
             </div>
         </div>
-        <div className="md:text-sm text-[0.7rem] mx-auto mt-8 text-purple-600">Miro will always display the most accurate info, it's the best chat AI out there, so don't double check its responses. Bruv I'm kidding</div>
+        {/* <div className="md:text-sm text-[0.7rem] mx-auto mt-8 text-purple-600">Miro will always display the most accurate info, it's the best chat AI out there, so don't double check its responses. Bruv I'm kidding</div> */}
     </div>
   )
 }
