@@ -4,15 +4,22 @@ import Icon from "./Icon";
 import { Context } from "./Context";
 
 const Sidebar = () => {
-    const {prevPrompts, sendInput, menuState, setMenuState} = useContext(Context);
+    const {prevPrompts, sendInput, menuState, setMenuState, hideSidebar, setHideSidebar} = useContext(Context);
 
     const handleMenuState = () => {
         setMenuState(!menuState);
     }
     
   return (
-    <div className={`inline-flex flex-col bg-purple-300 h-screen sidebar ${menuState ? 'w-[20%]' : 'w-[5%]'} px-6 py-8 ${!menuState && 'items-center'} ${menuState ? 'expanded' : 'collapsed'}`}>
-        <Icon className="bx bx-menu text-2xl cursor-pointer" onClick={handleMenuState}/>
+    <div className={`flex-col bg-purple-300 h-screen sidebar md:${menuState ? 'max-lg:w-[25%] sm:w-[30%] lg:w-[20%]' : 'lg:w-[5%] max-lg:w-[10%]'} px-6 py-8 ${!menuState && 'items-center'} ${menuState ? 'expanded' : 'collapsed'} ${hideSidebar ? 'hidden' : 'sidebarphone'} md:inline-flex`}>
+        {
+            hideSidebar ? (
+                <Icon className="bx bx-menu text-2xl cursor-pointer" onClick={handleMenuState}/>
+            ) : (
+                <Icon className="bx bx-x text-2xl cursor-pointer" onClick={() => {setMenuState(true); setHideSidebar(true)}}/>
+
+            )
+        }
         <Button className="opacity-50 mt-16 bg-purple-600 rounded-2xl" paddings={`${menuState ? 'px-4 py-2': 'px-2 py-2 w-full rounded-full items-center justify-center'}`} title="New chat" icon={<Icon className="bx bx-plus "/>} State={menuState} />
 
         {
@@ -21,11 +28,11 @@ const Sidebar = () => {
                     <p className="mt-8">Recent</p>
                     {
                         prevPrompts.length > 0 ? (
-                            <div className="flex flex-col gap-2 mt-4 overflow-hidden">
+                            <div className="flex flex-col gap-2 overflow-hidden">
                                 {
                                     prevPrompts.map((item, index) => {
                                         return (
-                                            <div onClick={() => {sendInput(item.prompt, item.thisResult)}} 
+                                            <div onClick={() => {sendInput(item.prompt, item.thisResult); setHideSidebar(true)}} 
                                             key={index} className="flex items-center gap-4 cursor-pointer pl-4 pr-2 py-2 hover:bg-purple-400 rounded-full">
                                                 <Icon className='bx bxs-message text-xl text-purple-800' />
                                                 <p className="max-w-max whitespace-nowrap">{item.prompt}</p>
@@ -41,8 +48,8 @@ const Sidebar = () => {
                 </>
             ) : (null)
         }
-
-        <div className="flex flex-col mt-auto">
+        <div className="flex-grow"></div>
+        <div className="flex flex-col">
             <Button icon={<Icon className="bx bx-help-circle text-xl" />} className="flex items-center gap-4 cursor-pointer hover:bg-purple-600 transition-all rounded-3xl" State={menuState} paddings="px-3 py-2">
                 Help
             </Button>
