@@ -6,7 +6,7 @@ function App() {
   
 
   return (
-    <div className="flex ff relative">
+    <div className="flex ff relative overflow-hidden">
       <Sidebar />
       <Main />
     </div>

@@ -28,7 +28,7 @@ const Nav = () => {
 
 const Card = ({description, iconClass}) => {
     return (
-        <div className="px-4 py-4 max-w-[250px] max-h-[250px] flex flex-col content-between bg-purple-300 rounded-lg cursor-pointer hover:bg-purple-500 transition-all">
+        <div className="px-4 py-4 md:max-w-[250px] md:max-h-[250px] flex flex-col content-between bg-purple-300 rounded-lg cursor-pointer hover:bg-purple-500 transition-all max-md:w-full">
             <div className="mb-32">{description}</div>
             <div className="flex ml-auto">
                 <Icon className={iconClass} />
@@ -54,7 +54,7 @@ const Main = () => {
                             <p className="xl:text-7xl text-4xl md:text-5xl lg:text-6xl  text-purple-400 sans">How can I help you today?</p>
                         </div>
 
-                        <div className="gap-4 hidden lg:flex lg:text-md text-sm">
+                        <div className="gap-4 lg:flex lg:text-md text-sm w-full max-md:flex max-md:flex-col max-md:gap-4 md:hidden">
                             {
                                 cards.map((card) => {
                                     return <Card description={card.description} iconClass={card.iconClass} />
