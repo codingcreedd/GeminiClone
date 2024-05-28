@@ -11,6 +11,7 @@ const ContextProvider = (props) => {
     const [showResult, setShowResult] = useState(false);
     const [loading, setLoading] = useState(false);
     const [result, setResult]= useState("");
+    const [menuState, setMenuState] = useState(false);
 
     const delayText = (index, newWord) => {
         setTimeout(() => {
@@ -79,7 +80,8 @@ const ContextProvider = (props) => {
         prevPrompts, setPrevPrompts,
         showResult, setShowResult,
         loading, setLoading,
-        result, setResult, sendInput
+        result, setResult, sendInput,
+        menuState, setMenuState
     }
 
     return (

@@ -36,11 +36,11 @@ const Card = ({description, iconClass}) => {
 
 const Main = () => {
 
-  const {input, setInput, recentPrompt, setRecentPrompt, prevPrompts, setPrevPrompts, showResult, setShowResult, loading, setLoading, result, setResult, sendInput} = useContext(Context);
+  const {input, setInput, recentPrompt, showResult, loading, result, sendInput, menuState} = useContext(Context);
 
 
   return (
-    <div className="h-screen w-[80%] px-8 py-8 ff flex flex-col">
+    <div className={`h-screen ${menuState ? 'w-[80%]' : 'w-[95%]'} px-8 py-8 ff flex flex-col`}>
         <Nav />
         {
             !showResult ? (

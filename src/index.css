@@ -30,7 +30,7 @@ div.collapsed{
 
 @keyframes expandedd {
   from{
-    width: 100px;
+    width: 5%;
   }
 
   to{
@@ -44,7 +44,7 @@ div.collapsed{
   }
 
   to{
-    width: 100px;
+    width: 5%;
   }
 }
 

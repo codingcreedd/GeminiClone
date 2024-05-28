@@ -4,16 +4,14 @@ import Icon from "./Icon";
 import { Context } from "./Context";
 
 const Sidebar = () => {
-
-    const [menuState, setMenuState] = useState(true);
-    const {prevPrompts, sendInput} = useContext(Context);
+    const {prevPrompts, sendInput, menuState, setMenuState} = useContext(Context);
 
     const handleMenuState = () => {
         setMenuState(!menuState);
     }
     
   return (
-    <div className={`inline-flex flex-col bg-purple-300 h-screen sidebar ${menuState ? 'w-[20%]' : 'w-max'} px-6 py-8 ${!menuState && 'items-center'} ${menuState ? 'expanded' : 'collapsed'}`}>
+    <div className={`inline-flex flex-col bg-purple-300 h-screen sidebar ${menuState ? 'w-[20%]' : 'w-[5%]'} px-6 py-8 ${!menuState && 'items-center'} ${menuState ? 'expanded' : 'collapsed'}`}>
         <Icon className="bx bx-menu text-2xl cursor-pointer" onClick={handleMenuState}/>
         <Button className="opacity-50 mt-16 bg-purple-600 rounded-2xl" paddings={`${menuState ? 'px-4 py-2': 'px-2 py-2 w-full rounded-full items-center justify-center'}`} title="New chat" icon={<Icon className="bx bx-plus "/>} State={menuState} />
 
