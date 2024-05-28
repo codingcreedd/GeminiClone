@@ -4,7 +4,7 @@ import Icon from "./Icon";
 import { Context } from "./Context";
 
 const Sidebar = () => {
-    const {prevPrompts, sendInput, menuState, setMenuState, hideSidebar, setHideSidebar, resultFinished} = useContext(Context);
+    const {prevPrompts, sendInput, menuState, setMenuState, hideSidebar, setHideSidebar, resultFinished, setShowResult, showResult} = useContext(Context);
 
     const handleMenuState = () => {
         setMenuState(!menuState);

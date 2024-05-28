@@ -107,7 +107,7 @@ const Main = () => {
                 }
             </div>
         </div>
-        <div className="hidden max-sm:block text-white">.</div>
+        <div className={`hidden ${showResult ? 'hidden' : 'max-sm:block'} text-white`}>.</div>
         {/* <div className="md:text-sm text-[0.7rem] mx-auto mt-8 text-purple-600">Miro will always display the most accurate info, it's the best chat AI out there, so don't double check its responses. Bruv I'm kidding</div> */}
     </div>
   )
