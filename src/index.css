@@ -86,11 +86,8 @@ hr{
 
 .sidebarphone{
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 2;
   width: 100%;
+  min-height: 100vh;
   padding-left: 2rem;
   padding-right: 6rem;
 }
