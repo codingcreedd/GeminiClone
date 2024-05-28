@@ -89,7 +89,7 @@ const Main = () => {
             )
         }
 
-        <div className="flex justify-between mt-auto xl:mx-52 md:mx-20 lg:mx-24 items-center bg-purple-300 px-6 py-2 rounded-full">
+        <div className="flex justify-between xl:mx-52 md:mx-20 lg:mx-24 items-center mt-8 bg-purple-300 px-6 py-2 rounded-full">
             <input type="text" name="prompt" placeholder="Enter a prompt here"
             className=" md:pl-4 md:py-4 w-[90%] outline-none bg-purple-300 placeholder-purple-800 text-purple-800"
             onChange={(e) => {setInput(e.target.value);}} value={input} readOnly={resultFinished}
