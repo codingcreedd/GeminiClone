@@ -50,4 +50,28 @@ div.collapsed{
 
 .ff{
   font-family: Outfit;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  & {
+    -ms-overflow-style: none; 
+  }
+  scrollbar-width: none !important;
+}
+
+
+hr{
+  background: linear-gradient(to right, #9333ea, white, #9333ea);
+  animation: loader 3s infinite linear;
+}
+
+@keyframes loader {
+  from{
+    background-position: -800px;
+  }
+
+  to{
+    background-position: 800px 0px;
+  }
 }

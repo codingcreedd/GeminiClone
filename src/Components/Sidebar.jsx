@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Button from "./Button"
 import Icon from "./Icon";
+import { Context } from "./Context";
 
 const Sidebar = () => {
 
     const [menuState, setMenuState] = useState(true);
+    const {prevPrompts, sendInput} = useContext(Context);
 
     const handleMenuState = () => {
         setMenuState(!menuState);
@@ -19,9 +21,25 @@ const Sidebar = () => {
             menuState ? (
                 <>
                     <p className="mt-8">Recent</p>
-                    <div className="flex flex-col gap-2">
-
-                    </div>
+                    {
+                        prevPrompts.length > 0 ? (
+                            <div className="flex flex-col gap-2 mt-4 overflow-hidden">
+                                {
+                                    prevPrompts.map((item, index) => {
+                                        return (
+                                            <div onClick={() => {sendInput(item.prompt, item.thisResult)}} 
+                                            key={index} className="flex items-center gap-4 cursor-pointer pl-4 pr-2 py-2 hover:bg-purple-400 rounded-full">
+                                                <Icon className='bx bxs-message text-xl text-purple-800' />
+                                                <p className="max-w-max whitespace-nowrap">{item.prompt}</p>
+                                            </div>
+                                        )
+                                    })
+                                }
+                            </div>
+                        ) : (
+                            null
+                        )
+                    }
                 </>
             ) : (null)
         }
