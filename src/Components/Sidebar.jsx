@@ -4,7 +4,7 @@ import Icon from "./Icon";
 import { Context } from "./Context";
 
 const Sidebar = () => {
-    const {prevPrompts, sendInput, menuState, setMenuState, hideSidebar, setHideSidebar} = useContext(Context);
+    const {prevPrompts, sendInput, menuState, setMenuState, hideSidebar, setHideSidebar, resultFinished} = useContext(Context);
 
     const handleMenuState = () => {
         setMenuState(!menuState);
@@ -28,7 +28,7 @@ const Sidebar = () => {
                     <p className="mt-8">Recent</p>
                     {
                         prevPrompts.length > 0 ? (
-                            <div className="flex flex-col gap-2 overflow-hidden">
+                            <div className="flex flex-col gap-2 overflow-hidden" style={{pointerEvents: !resultFinished ? 'auto' : 'none'}}>
                                 {
                                     prevPrompts.map((item, index) => {
                                         return (

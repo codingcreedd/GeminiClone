@@ -5,7 +5,7 @@ import { Context } from "./Context"
 
 const Nav = () => {
 
-    const {hideSidebar, setHideSidebar} = useContext(Context);
+    const {setHideSidebar} = useContext(Context);
 
     return (
         <nav className="flex justify-between items-center">
@@ -39,7 +39,7 @@ const Card = ({description, iconClass}) => {
 
 const Main = () => {
 
-  const {input, setInput, recentPrompt, showResult, loading, result, sendInput, menuState, hideSidebar} = useContext(Context);
+  const {input, setInput, recentPrompt, showResult, loading, result, sendInput, menuState, hideSidebar, resultFinished} = useContext(Context);
 
 
   return (
@@ -92,7 +92,7 @@ const Main = () => {
         <div className="flex justify-between mt-auto xl:mx-52 md:mx-20 lg:mx-24 items-center bg-purple-300 px-6 py-2 rounded-full">
             <input type="text" name="prompt" placeholder="Enter a prompt here"
             className=" md:pl-4 md:py-4 w-[90%] outline-none bg-purple-300 placeholder-purple-800 text-purple-800"
-            onChange={(e) => setInput(e.target.value)} value={input}
+            onChange={(e) => {setInput(e.target.value);}} value={input} readOnly={resultFinished}
             />
             <div className="flex md:gap-4 text-2xl">
                 <Icon className="bx bx-image-add cursor-pointer p-2" />

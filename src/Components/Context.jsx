@@ -12,6 +12,7 @@ const ContextProvider = (props) => {
     const [loading, setLoading] = useState(false);
     const [result, setResult]= useState("");
     const [menuState, setMenuState] = useState(true);
+    const [resultFinished, setResultFinished] = useState(true);
 
     const [hideSidebar, setHideSidebar] = useState(true);
 
@@ -29,6 +30,7 @@ const ContextProvider = (props) => {
         setShowResult(true);
         if(!inputText && !resultText){
             setLoading(true);
+            setResultFinished(false);
             setRecentPrompt(input);
             const response = await run(input);
 
@@ -60,12 +62,12 @@ const ContextProvider = (props) => {
             for(let i = 0; i < finalArray.length; i++){
                 delayText(i, finalArray[i]+" ");
             }
+            setResultFinished(true);
             setLoading(false);
 
             let newPrevPrompts = [...prevPrompts, {prompt: input, thisResult: newResponseTwo}]
-            console.log(input)
-            console.log(result);
             setPrevPrompts(newPrevPrompts);
+            setResultFinished(true);
         }
         else
         {
