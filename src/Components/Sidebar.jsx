@@ -20,7 +20,7 @@ const Sidebar = () => {
 
             )
         }
-        <Button className="opacity-50 mt-16 bg-purple-600 rounded-2xl" paddings={`${menuState ? 'px-4 py-2': 'px-2 py-2 w-full rounded-full items-center justify-center'}`} title="New chat" icon={<Icon className="bx bx-plus "/>} State={menuState} />
+        <Button className="opacity-50 mt-16 bg-purple-600 rounded-2xl" paddings={`${menuState ? 'px-4 py-2': 'px-2 py-2 w-full rounded-full items-center justify-center'}`} title="New chat" icon={<Icon className="bx bx-plus "/>} State={menuState} onClick={() => {setHideSidebar(true); setShowResult(false)}} />
 
         {
             menuState ? (
